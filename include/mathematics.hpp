@@ -68,6 +68,11 @@ namespace Math
 namespace Math
 {
 	/**
+	 * Return a random float between a and b included.
+	 */
+	inline float randomf(const float a, const float b);
+
+	/**
 	 * Minimal value between a and b.
 	 */
 	template<typename T>
