@@ -28,12 +28,12 @@
 #endif
 #endif
 
-typedef unsigned int uint;
-
 #include <cmath>
 #include <cfloat>
 
 #include <iostream>
+
+#include "numerics.hpp"
 
 namespace Math
 {
