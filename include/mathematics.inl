@@ -184,8 +184,8 @@ inline mat4 Math3::rotateXMatrix(const float& pitch)
 	float a = pitch * Math::Conversion::degrad;
 	return mat4{
 		1.f, 0.f, 0.f, 0.f,
-		0.f, cos(a), -sin(a), 0.f,
-		0.f, sin(a), cos(a), 0.f,
+		0.f, cosf(a), -sinf(a), 0.f,
+		0.f, sinf(a), cosf(a), 0.f,
 		0.f, 0.f, 0.f, 1.f,
 	};
 }
@@ -194,9 +194,9 @@ inline mat4 Math3::rotateYMatrix(const float& yaw)
 {
 	float a = yaw * Math::Conversion::degrad;
 	return mat4{
-		cos(a), 0.f, sin(a), 0.f,
+		cosf(a), 0.f, sinf(a), 0.f,
 		0.f, 1.f, 0.f, 0.f,
-		-sin(a), 0.f, cos(a), 0.f,
+		-sinf(a), 0.f, cosf(a), 0.f,
 		0.f, 0.f, 0.f, 1.f,
 	};
 }
@@ -205,8 +205,8 @@ inline mat4 Math3::rotateZMatrix(const float& roll)
 {
 	float a = roll * Math::Conversion::degrad;
 	return mat4{
-		cos(a), -sin(a), 0.f, 0.f,
-		sin(a), cos(a), 0.f, 0.f,
+		cosf(a), -sinf(a), 0.f, 0.f,
+		sinf(a), cosf(a), 0.f, 0.f,
 		0.f, 0.f, 1.f, 0.f,
 		0.f, 0.f, 0.f, 1.f,
 	};
