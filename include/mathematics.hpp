@@ -71,6 +71,46 @@ namespace Math
 	inline float randomf(const float a, const float b);
 
 	/**
+	 * cosine
+	 */
+	template<typename T>
+	inline T cos(const T a);
+	template<>
+	inline float cos(const float a);
+
+	/**
+	 * sine
+	 */
+	template<typename T>
+	inline T sin(const T a);
+	template<>
+	inline float sin(const float a);
+
+	/**
+	 * tangent
+	 */
+	template<typename T>
+	inline T tan(const T a);
+	template<>
+	inline float tan(const float a);
+
+	/**
+	 * exponential
+	 */
+	template<typename T>
+	inline T exp(const T a);
+	template<>
+	inline float exp(const float a);
+
+	/**
+	 * power
+	 */
+	template<typename T>
+	inline T pow(const T v, const T a);
+	template<>
+	inline float pow(const float v, const float a);
+
+	/**
 	 * Minimal value between a and b.
 	 */
 	template<typename T>

@@ -7,6 +7,66 @@ float Math::randomf(const float a, const float b)
 }
 
 template<typename T>
+T Math::cos(const T a)
+{
+	return std::cos(a);
+}
+
+template<>
+float Math::cos(const float a)
+{
+	return std::cosf(a);
+}
+
+template<typename T>
+T Math::sin(const T a)
+{
+	return std::sin(a);
+}
+
+template<>
+float Math::sin(const float a)
+{
+	return std::sinf(a);
+}
+
+template<typename T>
+T Math::tan(const T a)
+{
+	return std::tan(a);
+}
+
+template<>
+float Math::tan(const float a)
+{
+	return std::tanf(a);
+}
+
+template<typename T>
+T Math::exp(const T a)
+{
+	return std::exp(a);
+}
+
+template<>
+float Math::exp(const float a)
+{
+	return std::expf(a);
+}
+
+template<typename T>
+T Math::pow(const T v, const T a)
+{
+	return std::pow(v, a);
+}
+
+template<>
+float Math::pow(const float v, const float a)
+{
+	return std::powf(v, a);
+}
+
+template<typename T>
 inline T Math::min(const T& a, const T& b)
 {
 	return a < b ? a : b;
