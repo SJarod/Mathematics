@@ -18,11 +18,13 @@ inline T Math::max(const T& a, const T& b)
 	return a > b ? a : b;
 }
 
+template<>
 inline float3 Math::min(const float3& a, const float3& b)
 {
 	return { min(a.x, b.x), min(a.y, b.y), min(a.z, a.z) };
 }
 
+template<>
 inline float3 Math::max(const float3& a, const float3& b)
 {
 	return { max(a.x, b.x), max(a.y, b.y), max(a.z, a.z) };
@@ -46,11 +48,12 @@ inline T Math::remap(const T val, const T min1, const T max1, const T min2, cons
 }
 
 template<typename T>
-inline T Math::lerp(const T& from, const T& to, const T& t)
+inline T Math::lerp(const T& from, const T& to, const float& t)
 {
 	return (1 - t) * from + t * to;
 }
 
+template<>
 inline float3 Math::lerp(const float3& from, const float3& to, const float& t)
 {
 	return { lerp(from.x, to.x, t),
@@ -247,66 +250,4 @@ inline float3 Math3::rotateQ(const float3& v, const firstQuaternion& q1, const q
 	r = rotateQ(r, qs...);
 
 	return r;
-}
-
-
-inline std::ostream& operator<<(std::ostream& os, const float2& v)
-{
-	os << "---float2---" << std::endl;
-	os << v.x << ", " << v.y;
-	return os;
-}
-
-inline std::ostream& operator<<(std::ostream& os, const float3& v)
-{
-	os << "---float3---" << std::endl;
-	os << v.x << ", " << v.y << ", " << v.z;
-	return os;
-}
-
-inline std::ostream& operator<<(std::ostream& os, const float4& v)
-{
-	os << "---float4---" << std::endl;
-	os << v.x << ", " << v.y << ", " << v.z << ", " << v.w;
-	return os;
-}
-
-inline std::ostream& operator<<(std::ostream& os, const mat3& m)
-{
-	os << "---mat3---" << std::endl;
-	os << m.row[0].x << ", " << m.row[0].y << ", " << m.row[0].z << std::endl;
-	os << m.row[1].x << ", " << m.row[1].y << ", " << m.row[1].z << std::endl;
-	os << m.row[2].x << ", " << m.row[2].y << ", " << m.row[2].z;
-
-	return os;
-}
-
-inline std::ostream& operator<<(std::ostream& os, const mat4& m)
-{
-	os << "---mat4---" << std::endl;
-	os << m.row[0].x << ", " << m.row[0].y << ", " << m.row[0].z << ", " << m.row[0].w << std::endl;
-	os << m.row[1].x << ", " << m.row[1].y << ", " << m.row[1].z << ", " << m.row[1].w << std::endl;
-	os << m.row[2].x << ", " << m.row[2].y << ", " << m.row[2].z << ", " << m.row[2].w << std::endl;
-	os << m.row[3].x << ", " << m.row[3].y << ", " << m.row[3].z << ", " << m.row[3].w;
-
-	return os;
-}
-
-template<typename T, unsigned int N>
-inline std::ostream& operator<<(std::ostream& os, const vec<T, N>& v)
-{
-#ifdef RAW_VEC_TEMPLATE_NAME
-	os << "---vec<" << typeid(T).name() << ", " << N << ">---" << std::endl;
-#else
-	os << "---" << typeid(T).name() << N << "---" << std::endl;
-#endif
-
-	for (unsigned int i = 0; i < N; ++i)
-	{
-		os << v.elem[i];
-		if (i < N - 1)
-			os << ", ";
-	}
-
-	return os;
 }

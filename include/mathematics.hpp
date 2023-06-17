@@ -31,8 +31,6 @@
 #include <cmath>
 #include <cfloat>
 
-#include <iostream>
-
 #include "numerics.hpp"
 
 namespace Math
@@ -89,6 +87,7 @@ namespace Math
 	 *
 	 * @return float3 where its elements are the minimums of the corresponding elements between a and b
 	 */
+	template<>
 	inline float3 min(const float3& a, const float3& b);
 
 	/**
@@ -96,6 +95,7 @@ namespace Math
 	 *
 	 * @return float3 where its elements are the maximums of the corresponding elements between a and b
 	 */
+	template<>
 	inline float3 max(const float3& a, const float3& b);
 
 	/**
@@ -130,11 +130,12 @@ namespace Math
 	 * Linear interpolation from a specified value to another according to a specified time.
 	 */
 	template<typename T>
-	inline T lerp(const T& from, const T& to, const T& t);
+	inline T lerp(const T& from, const T& to, const float& t);
 
 	/**
 	 * Linear interpolation from a specified vector to another according to a specified time.
 	 */
+	template<>
 	inline float3 lerp(const float3& from, const float3& to, const float& t);
 
 	/**
@@ -255,38 +256,5 @@ namespace Math3
 	template <typename firstQuaternion, typename... quaternionArgs>
 	inline float3 rotateQ(const float3& v, const firstQuaternion& q1, const quaternionArgs&... qs);
 }
-
-/**
- * Display a float2 in the console.
- */
-inline std::ostream& operator<<(std::ostream& os, const float2& v);
-
-/**
- * Display a float3 in the console.
- */
-inline std::ostream& operator<<(std::ostream& os, const float3& v);
-
-/**
- * Display a float4 in the console.
- */
-inline std::ostream& operator<<(std::ostream& os, const float4& v);
-
-/**
- * Display a mat3 in the console.
- */
-inline std::ostream& operator<<(std::ostream& os, const mat3& m);
-
-/**
- * Display a mat4 in the console.
- */
-inline std::ostream& operator<<(std::ostream& os, const mat4& m);
-
-/**
- * Display a vec<T, N> in the console.
- * Some custom types are strangely displayed.
- * If the type T cannot be printed in an ostream, this operator cannot be called.
- */
-template<typename T, unsigned int N>
-inline std::ostream& operator<<(std::ostream& os, const vec<T, N>& v);
 
 #include "mathematics.inl"
