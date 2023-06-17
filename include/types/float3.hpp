@@ -62,7 +62,7 @@ struct float3
 	 * @param i
 	 * @return 
 	 */
-	inline float& operator[](const uint i);
+	inline float& operator[](const unsigned int i);
 
 	/**
 	 * Access this vector's elements with [].
@@ -70,7 +70,7 @@ struct float3
 	 * @param i
 	 * @return 
 	 */
-	inline const float& operator[](const uint i) const;
+	inline const float& operator[](const unsigned int i) const;
 };
 
 /**

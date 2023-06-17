@@ -6,7 +6,7 @@
 //used for printing the vector
 //#define RAW_VEC_TEMPLATE_NAME
 
-template<typename T, uint N>
+template<typename T, unsigned int N>
 struct vec
 {
 	union
@@ -23,7 +23,7 @@ struct vec
 	 * The additional parameters are ignored.
 	 * 
 	 * This constructor does not work with float type : use array manual initialization.
-	 * This constructor must work with small classical types : int, uint, double, ...
+	 * This constructor must work with small classical types : int, unsigned int, double, ...
 	 * This constructor may not work with array types : mat3, mat4, ...
 	 *
 	 * @param ts...
@@ -57,7 +57,7 @@ struct vec
 	 * @param i
 	 * @return
 	 */
-	inline T& operator[](const uint i);
+	inline T& operator[](const unsigned int i);
 
 	/**
 	 * Access this vector's elements with [].
@@ -65,10 +65,10 @@ struct vec
 	 * @param i
 	 * @return
 	 */
-	inline const T& operator[](const uint i) const;
+	inline const T& operator[](const unsigned int i) const;
 };
 
-template<typename T, uint N>
+template<typename T, unsigned int N>
 inline vec<T, N>::vec(const T ts...)
 {
 	std::va_list args;
@@ -76,7 +76,7 @@ inline vec<T, N>::vec(const T ts...)
 
 	elem[0] = ts;
 
-	for (uint i = 1; i < N; ++i)
+	for (unsigned int i = 1; i < N; ++i)
 	{
 		elem[i] = va_arg(args, T);
 	}
@@ -84,11 +84,11 @@ inline vec<T, N>::vec(const T ts...)
 	va_end(args);
 }
 
-template<typename T, uint N>
+template<typename T, unsigned int N>
 inline float vec<T, N>::sqrMag() const
 {
 	float m = 0.f;
-	for (uint i = 0; i < N; ++i)
+	for (unsigned int i = 0; i < N; ++i)
 	{
 		m += (float)elem[i] * (float)elem[i];
 	}
@@ -96,13 +96,13 @@ inline float vec<T, N>::sqrMag() const
 	return m;
 }
 
-template<typename T, uint N>
+template<typename T, unsigned int N>
 inline float vec<T, N>::mag() const
 {
 	return sqrtf(sqrMag());
 }
 
-template<typename T, uint N>
+template<typename T, unsigned int N>
 inline vec<T, N> vec<T, N>::normalized() const
 {
 	float m = mag();
@@ -110,7 +110,7 @@ inline vec<T, N> vec<T, N>::normalized() const
 		return *this;
 
 	vec<T, N> v;
-	for (uint i = 0; i < N; ++i)
+	for (unsigned int i = 0; i < N; ++i)
 	{
 		v[i] = (float)elem[i] / m;
 	}
@@ -118,15 +118,15 @@ inline vec<T, N> vec<T, N>::normalized() const
 	return v;
 }
 
-template<typename T, uint N>
-inline T& vec<T, N>::operator[](const uint i)
+template<typename T, unsigned int N>
+inline T& vec<T, N>::operator[](const unsigned int i)
 {
 	assert(("out of range", i < N));
 	return elem[i];
 }
 
-template<typename T, uint N>
-inline const T& vec<T, N>::operator[](const uint i) const
+template<typename T, unsigned int N>
+inline const T& vec<T, N>::operator[](const unsigned int i) const
 {
 	assert(("out of range", i < N));
 	return elem[i];

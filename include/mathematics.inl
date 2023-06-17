@@ -292,7 +292,7 @@ inline std::ostream& operator<<(std::ostream& os, const mat4& m)
 	return os;
 }
 
-template<typename T, uint N>
+template<typename T, unsigned int N>
 inline std::ostream& operator<<(std::ostream& os, const vec<T, N>& v)
 {
 #ifdef RAW_VEC_TEMPLATE_NAME
@@ -301,7 +301,7 @@ inline std::ostream& operator<<(std::ostream& os, const vec<T, N>& v)
 	os << "---" << typeid(T).name() << N << "---" << std::endl;
 #endif
 
-	for (uint i = 0; i < N; ++i)
+	for (unsigned int i = 0; i < N; ++i)
 	{
 		os << v.elem[i];
 		if (i < N - 1)

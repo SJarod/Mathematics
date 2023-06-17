@@ -20,13 +20,13 @@ inline float4 float4::normalized() const
 	return (*this) / mag();
 }
 
-inline float& float4::operator[](const uint i)
+inline float& float4::operator[](const unsigned int i)
 {
 	assert(("out of range", i < 4));
 	return i == 3 ? w : xyz[i];
 }
 
-inline const float& float4::operator[](const uint i) const
+inline const float& float4::operator[](const unsigned int i) const
 {
 	assert(("out of range", i < 4));
 	return i == 3 ? w : xyz[i];

@@ -12,13 +12,13 @@ inline const mat4 mat4::id = {
 	0.f, 0.f, 0.f, 1.f
 };
 
-inline float4& mat4::operator[](const uint i)
+inline float4& mat4::operator[](const unsigned int i)
 {
 	assert(("out of range", i < 4));
 	return row[i];
 }
 
-inline const float4& mat4::operator[](const uint i) const
+inline const float4& mat4::operator[](const unsigned int i) const
 {
 	assert(("out of range", i < 4));
 	return row[i];

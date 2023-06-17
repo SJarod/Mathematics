@@ -286,7 +286,7 @@ inline std::ostream& operator<<(std::ostream& os, const mat4& m);
  * Some custom types are strangely displayed.
  * If the type T cannot be printed in an ostream, this operator cannot be called.
  */
-template<typename T, uint N>
+template<typename T, unsigned int N>
 inline std::ostream& operator<<(std::ostream& os, const vec<T, N>& v);
 
 #include "mathematics.inl"

@@ -1,3 +1,5 @@
 #pragma once
 
-typedef unsigned int uint;
+#include <stdint.h>
+
+typedef unsigned int uint; // uint32_t
